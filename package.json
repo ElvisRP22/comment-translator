@@ -1,0 +1,199 @@
+{
+    "name": "comment-translator",
+    "displayName": "Comment Translator",
+    "description": "Instantly translate code comments to your preferred language with smart caching and multi-language support",
+    "version": "0.1.0",
+    "publisher": "ElvisRP22",
+    "author": {
+        "name": "ElvisRP22"
+    },
+    "license": "MIT",
+    "engines": {
+        "vscode": "^1.80.0"
+    },
+    "categories": [
+        "Other",
+        "Programming Languages",
+        "Formatters"
+    ],
+    "keywords": [
+        "translate",
+        "translation",
+        "comments",
+        "i18n",
+        "internationalization",
+        "russian",
+        "multilingual",
+        "python",
+        "javascript",
+        "typescript"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/ElvisRP22/comment-translator.git"
+    },
+    "bugs": {
+        "url": "https://github.com/ElvisRP22/comment-translator/issues"
+    },
+    "homepage": "https://github.com/ElvisRP22/comment-translator#readme",
+    "galleryBanner": {
+        "color": "#1F4788",
+        "theme": "dark"
+    },
+    "activationEvents": [
+        "onStartupFinished"
+    ],
+    "main": "./out/extension.js",
+    "contributes": {
+        "commands": [
+            {
+                "command": "comment-translator.translateSelection",
+                "title": "Comment Translator: Translate Selected Text"
+            },
+            {
+                "command": "comment-translator.translateAllComments",
+                "title": "Comment Translator: Translate All Comments in File"
+            },
+            {
+                "command": "comment-translator.undoLastTranslation",
+                "title": "Comment Translator: Undo Last Translation"
+            },
+            {
+                "command": "comment-translator.clearCache",
+                "title": "Comment Translator: Clear Translation Cache"
+            },
+            {
+                "command": "comment-translator.showStats",
+                "title": "Comment Translator: Show Statistics"
+            }
+        ],
+        "menus": {
+            "editor/context": [
+                {
+                    "when": "editorHasSelection",
+                    "command": "comment-translator.translateSelection",
+                    "group": "9_translation"
+                }
+            ],
+            "commandPalette": [
+                {
+                    "command": "comment-translator.translateSelection",
+                    "when": "editorHasSelection"
+                }
+            ]
+        },
+        "configuration": {
+            "title": "Comment Translator",
+            "properties": {
+                "commentTranslator.targetLanguage": {
+                    "type": "string",
+                    "default": "en",
+                    "description": "Target language for translation (ISO 639-1 code)",
+                    "enum": [
+                        "en",
+                        "es",
+                        "fr",
+                        "de",
+                        "it",
+                        "pt",
+                        "ru",
+                        "zh",
+                        "ja"
+                    ],
+                    "enumDescriptions": [
+                        "English",
+                        "Spanish",
+                        "French",
+                        "German",
+                        "Italian",
+                        "Portuguese",
+                        "Russian",
+                        "Chinese",
+                        "Japanese"
+                    ]
+                },
+                "commentTranslator.sourceLanguage": {
+                    "type": "string",
+                    "default": "auto",
+                    "description": "Source language (auto-detect or ISO 639-1 code)",
+                    "enum": [
+                        "auto",
+                        "en",
+                        "es",
+                        "fr",
+                        "de",
+                        "it",
+                        "pt",
+                        "ru",
+                        "zh",
+                        "ja"
+                    ],
+                    "enumDescriptions": [
+                        "Auto-detect",
+                        "English",
+                        "Spanish",
+                        "French",
+                        "German",
+                        "Italian",
+                        "Portuguese",
+                        "Russian",
+                        "Chinese",
+                        "Japanese"
+                    ]
+                },
+                "commentTranslator.translationProvider": {
+                    "type": "string",
+                    "default": "google",
+                    "description": "Translation service provider",
+                    "enum": [
+                        "google",
+                        "libretranslate"
+                    ],
+                    "enumDescriptions": [
+                        "Google Translate (free, no API key needed)",
+                        "LibreTranslate (requires instance URL)"
+                    ]
+                },
+                "commentTranslator.libreTranslateUrl": {
+                    "type": "string",
+                    "default": "https://libretranslate.de",
+                    "description": "LibreTranslate instance URL (if using LibreTranslate provider)"
+                }
+            }
+        },
+        "keybindings": [
+            {
+                "command": "comment-translator.translateSelection",
+                "key": "ctrl+shift+t",
+                "mac": "cmd+shift+t",
+                "when": "editorTextFocus && editorHasSelection"
+            },
+            {
+                "command": "comment-translator.translateAllComments",
+                "key": "ctrl+shift+alt+t",
+                "mac": "cmd+shift+alt+t",
+                "when": "editorTextFocus"
+            }
+        ]
+    },
+    "scripts": {
+        "vscode:prepublish": "npm run compile",
+        "compile": "tsc -p ./",
+        "watch": "tsc -watch -p ./",
+        "pretest": "npm run compile && npm run lint",
+        "lint": "eslint src --ext ts",
+        "test": "node ./out/test/runTest.js"
+    },
+    "devDependencies": {
+        "@types/vscode": "^1.80.0",
+        "@types/node": "^20.0.0",
+        "@typescript-eslint/eslint-plugin": "^6.0.0",
+        "@typescript-eslint/parser": "^6.0.0",
+        "eslint": "^8.0.0",
+        "typescript": "^5.0.0"
+    },
+    "dependencies": {
+        "@vitalets/google-translate-api": "^9.2.0",
+        "axios": "^1.6.0"
+    }
+}
