@@ -2,7 +2,7 @@
     "name": "comment-translator",
     "displayName": "Smart Comment Translator",
     "description": "Instantly translate code comments to your preferred language with smart caching and multi-language support",
-    "version": "0.1.0",
+    "version": "0.1.1",
     "publisher": "ElvisRP22",
     "author": {
         "name": "ElvisRP22"

@@ -2,11 +2,30 @@
 .vscode-test/**
 src/**
 .gitignore
-.yarnrc
+tsconfig.json
 vsc-extension-quickstart.md
 **/tsconfig.json
 **/.eslintrc.json
 **/*.map
 **/*.ts
+
+# Documentación personal (no incluir en VSIX)
+DESARROLLO.md
+IDEAS_MEJORAS.md
+GUIA_PUBLICACION.md
+CHECKLIST_PUBLICACION.md
+LISTO_PARA_PUBLICAR.md
+MEJORAS_APLICADAS.md
+ACTUALIZACION_COMPLETADA.md
+PROYECTO_COMPLETADO.md
+QUICKSTART.md
+RESUMEN.md
+TESTING.md
+INDEX.md
+ARQUITECTURA.md
+GITHUB_SUBIDO.md
+publish-helper.ps1
+test-*.ts
+test-*.py
 !out/**/*.js
-node_modules/**
+# node_modules/**  <-- ERROR CORREGIDO: Necesitamos las dependencias de producción
