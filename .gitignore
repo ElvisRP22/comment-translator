@@ -1,6 +1,30 @@
 out
 node_modules
-.vscode-test/
+out
 *.vsix
+.vscode
+.vscode-test/
+*.log
+
+# Documentación personal de desarrollo (no necesaria en GitHub)
+DESARROLLO.md
+IDEAS_MEJORAS.md
+GUIA_PUBLICACION.md
+CHECKLIST_PUBLICACION.md
+LISTO_PARA_PUBLICAR.md
+MEJORAS_APLICADAS.md
+ACTUALIZACION_COMPLETADA.md
+PROYECTO_COMPLETADO.md
+QUICKSTART.md
+RESUMEN.md
+TESTING.md
+INDEX.md
+ARQUITECTURA.md
+publish-helper.ps1
+
+# Archivos de prueba (opcional mantenerlos)
+test-file-russian.ts
+test-multi-language.ts
+test-python-russian.pyvsix
 .DS_Store
 .vscode
