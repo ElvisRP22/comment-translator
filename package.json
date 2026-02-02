@@ -36,6 +36,7 @@
         "url": "https://github.com/ElvisRP22/comment-translator/issues"
     },
     "homepage": "https://github.com/ElvisRP22/comment-translator#readme",
+    "icon": "icon.png",
     "galleryBanner": {
         "color": "#1F4788",
         "theme": "dark"
